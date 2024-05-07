@@ -1,8 +1,15 @@
-const cdiv = document.querySelector('.container');
-
-// Add 16 divs
-for (let i = 1; i < 273; i++) {
-  const div = document.createElement('div');
-  div.style.cssText = "border: 1px solid black; height: 25px; width: 25px";  
-  cdiv.appendChild(div);
+let sizeOfGrid = 16
+const container = document.querySelector('.container')
+const createGrid = (amtOfGrids) => {
+  for(let i=0; i < amtOfGrids; i++) {
+    const row = document.createElement('div');
+    row.classList.add('grid-row')
+    for (let j = 0; j < amtOfGrids; j++) {
+      const gridBox = document.createElement('div')
+      gridBox.classList.add('grid-box')
+      row.appendChild(gridBox)
+    }
+    container.appendChild(row)
+  }
 }
+createGrid(sizeOfGrid)
