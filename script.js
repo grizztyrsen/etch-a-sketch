@@ -1,6 +1,12 @@
 const container = document.querySelector('.container')
 const resetButton = document.querySelector(`button`)
 
+function changeColor() {
+  let randomColor = Math.floor(Math.random()*16777215).toString(16)
+  let rgbValue = "#" + randomColor
+  return rgbValue
+}
+
 const createGrid = (amtOfGrids) => {
   const wrapper = document.createElement('div')
   wrapper.classList.add('wrapper')
@@ -14,7 +20,7 @@ const createGrid = (amtOfGrids) => {
       gridBox.style.width= `${widthAndHeight}px`
       gridBox.style.height= `${widthAndHeight}px`
       gridBox.addEventListener(`mouseenter`, () => {
-        gridBox.style.backgroundColor = `black`
+        gridBox.style.backgroundColor = changeColor()
       })
       row.appendChild(gridBox)
     }
